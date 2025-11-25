@@ -7,8 +7,53 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Funciona! O site da construtora está online.</h1>
-    <p>Ambiente de desenvolvimento configurado.</p>
-    <h4>Teste!</h4>
+    <%- include('partials/header') %>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Construindo o sonho da sua família</h1>
+            <p>Qualidade e segurança em cada detalhe.</p>
+        </section>
+    </main>
+
+    <section id="projetos" class="projects-section">
+    <img src="/img/Geometria.png" class="bg-deco-top" alt="">
+
+    <div class="container column-direction">
+        <h2 class="section-title">Nossas Obras</h2>
+        <p class="section-subtitle">Excelência e sofisticação em cada detalhe.</p>
+        
+        <div class="projects-list">
+            <% projetos.forEach((projeto, index) => { %>
+                
+                <div class="project-row <%= index % 2 !== 0 ? 'inverse' : '' %>">
+                    
+                    <div class="project-img">
+                        <img src="<%= projeto.imagem %>" alt="<%= projeto.titulo %>">
+                    </div>
+
+                    <div class="project-info">
+                        <h3><%= projeto.titulo %></h3>
+                        
+                        <div class="separator">
+                            <img src="/img/Linha.png" alt="divisor">
+                        </div>
+                        
+                        <span class="location"><%= projeto.local %></span>
+                        <p><%= projeto.descricao %></p>
+                        
+                        <a href="#" class="btn-detalhes">Ver Planta</a>
+                    </div>
+
+                </div>
+
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+
+    <%- include('partials/footer') %>
+    
 </body>
 </html>
